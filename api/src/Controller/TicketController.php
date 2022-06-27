@@ -74,7 +74,7 @@ class TicketController extends AbstractController
         $params = $request->toArray();
 
         $ticketRequestValidator = new RequestValidator();
-        $ticketRequestValidator->validate($params);
+        $ticketRequestValidator->isValid($params);
 
         /**
          * @var TicketRepository $repository
@@ -140,7 +140,7 @@ class TicketController extends AbstractController
         $params = $request->toArray();
 
         $ticketRequestValidator = new RequestValidator();
-        $ticketRequestValidator->validate($params);
+        $ticketRequestValidator->isValid($params);
 
         /**
          * @var TicketRepository $repository

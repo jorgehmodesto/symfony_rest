@@ -47,6 +47,16 @@ class Ticket
      */
     private $classification;
 
+    const CLASSIFY_NEW = 'NEW';
+
+    const CLASSIFY_MINOR = 'MINOR';
+
+    const CLASSIFY_NORMAL = 'NORMAL';
+
+    const CLASSIFY_URGENT = 'URGENT';
+
+    const CLASSIFY_CRITICAL = 'CRITICAL';
+
     public function getId(): ?int
     {
         return $this->id;

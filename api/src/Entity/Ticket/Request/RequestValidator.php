@@ -25,10 +25,10 @@ class RequestValidator
     /**
      * Validates ticket request.
      *
-     * @return $this
-     * @throws ValidatorException
+     * @param array $params
+     * @return bool
      */
-    public function validate($params = [])
+    public function isValid($params = [])
     {
         foreach ($this->required as $field => $message) {
             if (
@@ -39,6 +39,6 @@ class RequestValidator
             }
         }
 
-        return $this;
+        return true;
     }
 }

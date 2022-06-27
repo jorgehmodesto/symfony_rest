@@ -37,23 +37,23 @@ class Validator
         if ($this->ticket->getSeverity() === 2) {
 
             if ($this->getOpenedDays() > 10) {
-                return 'URGENT';
+                return Ticket::CLASSIFY_URGENT;
             }
 
             if ($this->getOpenedDays() > 5) {
-                return 'NORMAL';
+                return Ticket::CLASSIFY_NORMAL;
             }
 
             if ($this->getOpenedDays() > 2) {
-                return 'MINOR';
+                return Ticket::CLASSIFY_MINOR;
             }
         }
 
         if ($this->ticket->getSeverity() === 3) {
-            return 'CRITICAL';
+            return Ticket::CLASSIFY_CRITICAL;
         }
 
-        return 'NEW';
+        return Ticket::CLASSIFY_NEW;
     }
 
     /**
@@ -61,7 +61,7 @@ class Validator
      *
      * @return int
      */
-    private function getOpenedDays()
+    public function getOpenedDays()
     {
         $ticketDate = date_create($this->ticket->getDate()->format('Y-m-d H:i:s'));
         $now = date_create(date('Y-m-d H:i:s'));
