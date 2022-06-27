@@ -67,7 +67,7 @@ class TicketController extends AbstractController
      * @param Request $request
      * @return JsonResponse
      *
-     * @Route("/ticket/new", name="new_ticket", methods={"POST"})
+     * @Route("/ticket", name="new_ticket", methods={"POST"})
      */
     public function new(ManagerRegistry $connection, Request $request): JsonResponse
     {
@@ -193,7 +193,7 @@ class TicketController extends AbstractController
      * @param int $id
      * @return JsonResponse
      *
-     * @Route("/ticket/classify/{id}", name="classify_ticket", methods={"GET"})
+     * @Route("/ticket/classify/{id}", name="classify_ticket", methods={"PUT"})
      */
     public function classify(ManagerRegistry $connection, int $id): JsonResponse
     {

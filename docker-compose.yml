@@ -26,8 +26,6 @@ services:
             context: .
             dockerfile: ./php/Dockerfile
         container_name: php-container
-        ports:
-            - "9000:9000"
         volumes:
             - ./api:/var/www/api
         networks:
@@ -35,7 +33,7 @@ services:
 
     # mysql
     mysql:
-        image: mysql
+        image: mysql:8.0
         container_name: mysql-container
         cap_add:
             - SYS_NICE
@@ -44,7 +42,9 @@ services:
         volumes:
             - ./mysql:/var/lib/mysql
         environment:
+            MYSQL_USER: app
             MYSQL_ROOT_PASSWORD: P@ssword!
             MYSQL_PASSWORD: P@ssword!
+            MYSQL_DATABASE: app
         networks:
             - nginx-php-mysql
